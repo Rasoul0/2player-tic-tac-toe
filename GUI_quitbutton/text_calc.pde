@@ -9,7 +9,7 @@ String x="X:", o="O:";
 String title;
 void textSetup() {
   titleFont = createFont ("Harrington", height); // //Must also Tools / Create Font / Find Font / Do Not Press "OK"
-  title = "Mercer's Kitchen Fastantic Weather App";
+  title = "My Awsome Tic-Tac-Toe Game";
   titleWidth = width * 1/2;
   titleHeight = height * 1/10;
   quit = "X";

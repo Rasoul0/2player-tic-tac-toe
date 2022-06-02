@@ -4,7 +4,7 @@ PFont titlefont;
 color green =#2AE53E , gold= #FABF28, white=#FFFFFF, black =#000000 , red=#E33535;
 color purple = #2C08FF, blue= #2C40E5; //Ink
 Boolean twoplayermode = false, twoAImode = false;
-Boolean gameison= false;
+Boolean start = false;
 float resetX, resetY,resetWidth, resetHeight;
 float scoreBoardX, scoreBoardY, scoreBoardWidth, scoreBoardHeight;
 float[] AreaX = new float[13];
@@ -20,7 +20,6 @@ float mediumX, mediumY, mediumWidth, mediumHeight;
 float InsaneX, InsaneY, InsaneWidth, InsaneHeight;
 float scoreXnameX, scoreYX, scoreWidthX,scoreHeightX;
 float scoreXO, scoreYO, scoreWidthO, scoreHeightO;
-Boolean twoPlayer2 = false, twoPlayerAI = false;
 float NoobX, NoobY, NoobWidth, NoobHeight;
 float scoreA, scoreB, scoreWidth, scoreHeight, scoreAX, scoreBX;
 float scoreAO, scoreBO, scoreWidthXO, scoreHeightXO;
@@ -121,15 +120,17 @@ rect(1875,0,50,50);}
   } else {
     noStroke();
     rect(resetX, scoreYnameX, resetWidth, scoreHeightXO*0.5);
- }
+  }
    //
-    rect(scoreA, InsaneY, scoreWidth, InsaneHeight);
+      rect(scoreA, InsaneY, scoreWidth, InsaneHeight);
   if (twoPlayer2 == false && twoPlayerAI == false && mouseX >= scoreA  && mouseX <= InsaneY+scoreWidth && mouseY >= InsaneY && mouseY <= InsaneY+InsaneHeight) {
+    fill(red);
     noStroke();
     rect(scoreA, InsaneY, scoreWidth, InsaneHeight);
     stroke(1);
     textDraw(playerMode, titleFont, height, black, CENTER, TOP, scoreA, InsaneY, scoreWidth, InsaneHeight);
   } else {
+    fill(black);
     noStroke();
     rect(scoreA, InsaneY, scoreWidth, InsaneHeight);
     stroke(1);
@@ -184,6 +185,7 @@ void keyPressed() {
 
 
 void mousePressed() {
+  
   println(mouseX,mouseY);
   if ( mouseX>=1875 && mouseX<=1875+ 50 && mouseY>=0 && mouseY<=0+750 ) {
   
@@ -192,9 +194,15 @@ void mousePressed() {
   if(mouseX>=resetX && mouseX<=resetX+resetWidth && mouseY>=resetY && mouseY<=resetY+resetHeight){
     clear();
   }
-  if (twoPlayer2 == true && twoPlayerAI == false && mouseX >= scoreA  && mouseX <= InsaneY+scoreWidth && mouseY >= InsaneY && mouseY <= InsaneY+InsaneHeight) {
-  
-  twoplayermode=true;
+  //
+  if (start == false && mouseX >= scoreA  && mouseX <= InsaneY+scoreWidth && mouseY >= InsaneY && mouseY <= InsaneY+InsaneHeight) {
+    start = true;
+  }
+  if (start == true) {
+    twoPlayerBoolean();
+  }
+  if (start = true && twoPlayer2 == true || twoPlayerAI == true) {
+    clickXO();
   }
 
 }
