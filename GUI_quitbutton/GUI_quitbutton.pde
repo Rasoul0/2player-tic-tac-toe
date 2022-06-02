@@ -122,6 +122,25 @@ rect(1875,0,50,50);}
     rect(resetX, scoreYnameX, resetWidth, scoreHeightXO*0.5);
   }
    //
+    rect(InsaneX, InsaneY, InsaneWidth, InsaneHeight);
+  if (mouseX >= InsaneX  && mouseX <= InsaneX+InsaneWidth && mouseY >= InsaneY && mouseY <= InsaneY+InsaneHeight) {
+    fill(red);
+    noStroke();
+    rect(InsaneX, InsaneY, InsaneWidth, InsaneHeight);
+    stroke(1);
+    textDraw(impossible, titleFont, height, black, CENTER, CENTER,InsaneX, InsaneY, InsaneWidth, InsaneHeight);
+  } else {
+    fill(gold);
+    noStroke();
+    rect(InsaneX, InsaneY, InsaneWidth, InsaneHeight);
+    stroke(1);
+    textDraw(impossible, titleFont, height, black, CENTER, CENTER, InsaneX, InsaneY, InsaneWidth, InsaneHeight);
+  }
+   
+   
+   
+   
+   //
       rect(scoreA, InsaneY, scoreWidth, InsaneHeight);
   if (twoPlayer2 == false && twoPlayerAI == false && mouseX >= scoreA  && mouseX <= InsaneY+scoreWidth && mouseY >= InsaneY && mouseY <= InsaneY+InsaneHeight) {
     fill(red);
